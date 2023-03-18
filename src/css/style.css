@@ -1,0 +1,107 @@
+.board{
+    /*   width:960px; */
+      display: flex;
+      justify-content: space-around;  
+      background:#4fbeff;
+      padding-top:20px;
+      padding-bottom:20px;
+      
+      
+         
+    }
+    .container {
+      /* list-style-type:none; */
+      width: 27%;
+      height:90%;
+      border: 1px solid gray;
+      background:#becad1;
+      border-radius:5px;
+      padding:1.5%;
+    /*   box-shadow: 5px 5px 5px 0px rgba(223, 243, 247,0.6); */
+       
+    }
+    .title {
+      cursor: default;
+    }
+    
+    .list{
+      list-style-type:none;
+      padding:0px;
+      margin:0px;
+      user-select: none;
+    }
+    .list.active{
+      border: 2px;
+    }
+    
+    .item-list{
+      display: flex;
+       justify-content:space-between;
+       align-items: flex-start;
+      cursor: default;
+      background: #f9faf0;
+      padding:10px;  
+      margin-bottom:20px;
+      width:90%;
+      border-radius:5px;
+      box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.5);
+    }
+    .add-task{
+      text-decoration: none;
+    }
+    .delete-item{
+    
+      width:20px;
+      height:20px;
+      padding-left:4px;
+      
+    /*   background-image: url(https://flyclipart.com/thumb2/cross-symbol-674462.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size:19px */    
+      
+      
+    }
+    .item-list.active{
+       /* display: flex;
+       justify-content:space-between;
+       align-items: flex-start; */
+       box-shadow: inset 2px 5px 5px 0px rgba(0,0,0,0.5);
+       background-color: #fff9da;
+       /* background-size: 5%;
+       background-image: url(https://flyclipart.com/thumb2/cross-symbol-674462.png);
+       background-repeat: no-repeat;
+       background-position: center; */
+    }
+
+    .item-list.dragger{
+      cursor: grabbing;
+      position: absolute;
+      border: 2px solid black;
+      /* width: initial; */
+      width: 23%;
+      /* margin-left: 10%; */
+      z-index: 500;
+    }
+   
+
+    .btn-add-task{
+      font-weight: bold;
+      background-color: #eef0df;
+      border: 1px;
+      border-radius: 5px;
+      color: rgb(118, 124, 124);
+      box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.5);
+    }
+    .btn-add-task:hover{
+      box-shadow: inset 2px 5px 5px 0px rgba(0,0,0,0.5);
+      background-color: #f7e27d;
+      color: black;
+    }
+    .btn-add-task.active{
+      background-color: #d3f84efd;
+      border: 2px solid black;
+      
+      
+      color: rgb(13, 23, 31);
+    }
