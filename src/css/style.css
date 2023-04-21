@@ -54,7 +54,10 @@
       width:20px;
       height:20px;
       padding-left:4px;
-      
+      background-image: url('../js/image/remove.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      border:1px;
     /*   background-image: url(https://flyclipart.com/thumb2/cross-symbol-674462.png);
       background-repeat: no-repeat;
       background-position: center;

@@ -21,8 +21,7 @@ export default class AddListCard {
             <div class="container-for-list">
             <ul class="list">
                 
-            <li class='item-list'> TEST
-            <button class='delete-item'>X</button> </li>
+          
                
 
             </ul>    
@@ -50,7 +49,7 @@ export default class AddListCard {
 
   static get addItem() {
     return `<li class='item-list'>
-    <button class='delete-item'>X</button> </li>
+    <button class='delete-item'></button> </li>
             `;
   }
 
@@ -62,11 +61,11 @@ export default class AddListCard {
     return '.dragger';
   }
 
-    newItem(textItem) {
-      return `<li class='item-list'>${textItem}
-      <button class='delete-item'>X</button> </li>
+  newItem(textItem) {
+    return `<li class='item-list'>${textItem}
+      <button class='delete-item'></button> </li>
               `;
-    }
+  }
 
   addList() {
     this.parentEl.insertAdjacentHTML('beforeend', AddListCard.getHtlm);
@@ -115,7 +114,7 @@ export default class AddListCard {
       const newItem = document.createElement('LI');
       const newBtnDel = document.createElement('BUTTON');
 
-      newBtnDel.textContent = 'X';
+      // newBtnDel.textContent = 'X';
       newBtnDel.classList.add('delete-item');
       console.log(newBtnDel);
       newItem.textContent = this.actualItem.value;
@@ -134,22 +133,6 @@ export default class AddListCard {
       // this.actualItem = undefined;
       // this.addItem = false;
     }
-
-    // btn.classList.add('active')
-    // // const activeList = activeContainer.querySelector(AddListCard.getList);
-    // // activeList.insertAdjacentHTML('beforeend',AddListCard.addItem);
-
-    // // const newItem = document.createElement('INPUT');
-    // // newItem.classList.add('item-list')
-    // // newItem.setAttribute('type','text')
-    // // activeList.insertAdjacentHTML('beforeend',newItem.outerHTML);
-
-    // const newItem = document.createElement('INPUT');
-    // newItem.classList.add('item-list')
-    // newItem.setAttribute('type','text')
-
-    // btn.parentNode.insertBefore(newItem,btn)
-    // newItem.focus()
   }
 
   mouseOutItem() {
@@ -170,7 +153,7 @@ export default class AddListCard {
   mouseDownOnList(e) {
     // e.stopPropagation();
     if (e.target.classList.contains('delete-item')) {
-    //   console.log('del');
+      console.log('del');
       e.target.closest('.item-list').remove();
     }
     if (e.target.classList.contains('list')) return;

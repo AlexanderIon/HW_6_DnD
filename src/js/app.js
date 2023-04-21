@@ -26,12 +26,19 @@ const boardMouseOver = (e) => {
 };
 const boardMouseUp = () => {
   // console.log('UP')
-  // console.log(elemUnder)
+  console.log(elemUnder);
   if (elemUnder === undefined) return;
   if (elemUnder.parentNode.classList.contains('list')) {
     elemUnder.parentNode.insertBefore(itemActiv, elemUnder);
+  } else if (elemUnder.classList.contains('board')) {
+    console.log('Ты на доске');
   } else {
-    console.log('Не попал на элемент');
+    const activCont = elemUnder.closest('.container-for-card');
+    const activList = activCont.querySelector('.list');
+    activList.appendChild(itemActiv);
+    // activList.parentNode.insertBefore(itemActiv, activList)
+    // console.log(activList)
+    // activList.insertAdjacentHTML('afterbegin',itemActiv.innerHTML)
     // const avticList = elemUnder.closest('.container');
   }
 
@@ -66,13 +73,13 @@ window.addEventListener('beforeunload', () => {
   const myDone = Array.from(isDoneTask.querySelectorAll('.item-list'));
   const myData = {};
   myHaveTo.forEach((el, i) => {
-    myData[`${haveToDo.id}_${i}`] = el.textContent.substring(0, el.textContent.search('\n'));
+    myData[`${haveToDo.id}_${i}`] = el.textContent;
   });
   myInProsec.forEach((el, i) => {
-    myData[`${inProcessing.id}_${i}`] = el.textContent.substring(0, el.textContent.search('\n'));
+    myData[`${inProcessing.id}_${i}`] = el.textContent;
   });
   myDone.forEach((el, i) => {
-    myData[`${isDoneTask.id}_${i}`] = el.textContent.substring(0, el.textContent.search('\n'));
+    myData[`${isDoneTask.id}_${i}`] = el.textContent;
   });
   localStorage.setItem('myBoard', JSON.stringify(myData));
 });
@@ -87,21 +94,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if (myBoard) {
     let insertList;
-
+    console.log(myBoard);
     Object.keys(myBoard).forEach((key) => {
       if (key.includes(haveToDo.id)) {
         insertList = haveToDo.querySelector('.list');
-        insertList.insertAdjacentHTML('beforeend', myTasks.newItem(myBoard.key));
-
+        insertList.insertAdjacentHTML('beforeend', myTasks.newItem(myBoard[key]));
+        console.log(myBoard[key]);
         itemActiv = undefined;
       } else if (key.includes(inProcessing.id)) {
         insertList = inProcessing.querySelector('.list');
-        insertList.insertAdjacentHTML('beforeend', myProcessingTasks.newItem(myBoard.key));
+        insertList.insertAdjacentHTML('beforeend', myProcessingTasks.newItem(myBoard[key]));
 
         itemActiv = undefined;
       } else if (key.includes(isDoneTask.id)) {
         insertList = isDoneTask.querySelector('.list');
-        insertList.insertAdjacentHTML('beforeend', myDoneTasks.newItem(myBoard.key));
+        insertList.insertAdjacentHTML('beforeend', myDoneTasks.newItem(myBoard[key]));
 
         itemActiv = undefined;
       }
