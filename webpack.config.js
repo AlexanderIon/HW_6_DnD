@@ -14,6 +14,20 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        use:[
+          {
+            loader: 'file-loader',
+            options: {
+              namme: '[name].[ext]',
+              outputPath: '.logs',
+              userRelativePath: true,
+            }
+          }
+        ]
+
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
