@@ -9,7 +9,7 @@ export default class AddListCard {
     this.mouseUpOnList = this.mouseUpOnList.bind(this);
     this.mouseOverItem = this.mouseOverItem.bind(this);
     this.mouseOutItem = this.mouseOutItem.bind(this);
-    this.newItem = this.newItem.bind(this);
+    // this.newItem = this.newItem.bind(this);
   }
 
   static get getHtlm() {
@@ -61,7 +61,7 @@ export default class AddListCard {
     return '.dragger';
   }
 
-  newItem(textItem) {
+  static newItem(textItem) {
     return `<li class='item-list'>${textItem}
       <button class='delete-item'></button> </li>
               `;
@@ -84,7 +84,7 @@ export default class AddListCard {
   clikcBtn(e) {
     e.stopPropagation();
 
-    console.log(this.addItem);
+    // console.log(this.addItem);
 
     const activeContainer = e.target.closest('.container');
     const btn = activeContainer.querySelector(AddListCard.getbtn);
@@ -108,7 +108,7 @@ export default class AddListCard {
       this.addItem = true;
       this.actualItem = activeContainer.querySelector('input');
     } else {
-      console.log('FORM IS NOT FULLED');
+      // console.log('FORM IS NOT FULLED');
 
       if (!this.actualItem.value) return;
       const newItem = document.createElement('LI');
@@ -116,7 +116,7 @@ export default class AddListCard {
 
       // newBtnDel.textContent = 'X';
       newBtnDel.classList.add('delete-item');
-      console.log(newBtnDel);
+      // console.log(newBtnDel);
       newItem.textContent = this.actualItem.value;
       newItem.classList.add('item-list');
       newItem.insertBefore(newBtnDel, newItem.lastaChild);
@@ -153,7 +153,7 @@ export default class AddListCard {
   mouseDownOnList(e) {
     // e.stopPropagation();
     if (e.target.classList.contains('delete-item')) {
-      console.log('del');
+      // console.log('del');
       e.target.closest('.item-list').remove();
     }
     if (e.target.classList.contains('list')) return;
@@ -163,7 +163,7 @@ export default class AddListCard {
     this.listCards.removeEventListener('mouseout', this.mouseOutItem);
     this.listCards.removeEventListener('mouseover', this.mouseOverItem);
 
-    console.log('mouseDown');
+    // console.log('mouseDown');
   }
 
   mouseUpOnList() {

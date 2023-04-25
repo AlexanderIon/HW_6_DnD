@@ -94,21 +94,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if (myBoard) {
     let insertList;
-    console.log(myBoard);
+    // console.log(myBoard);
     Object.keys(myBoard).forEach((key) => {
       if (key.includes(haveToDo.id)) {
         insertList = haveToDo.querySelector('.list');
-        insertList.insertAdjacentHTML('beforeend', myTasks.newItem(myBoard[key]));
+        insertList.insertAdjacentHTML('beforeend', AddListCard.newItem(myBoard[key]));
         console.log(myBoard[key]);
         itemActiv = undefined;
       } else if (key.includes(inProcessing.id)) {
         insertList = inProcessing.querySelector('.list');
-        insertList.insertAdjacentHTML('beforeend', myProcessingTasks.newItem(myBoard[key]));
+        insertList.insertAdjacentHTML('beforeend', AddListCard.newItem(myBoard[key]));
 
         itemActiv = undefined;
       } else if (key.includes(isDoneTask.id)) {
         insertList = isDoneTask.querySelector('.list');
-        insertList.insertAdjacentHTML('beforeend', myDoneTasks.newItem(myBoard[key]));
+        insertList.insertAdjacentHTML('beforeend', AddListCard.newItem(myBoard[key]));
 
         itemActiv = undefined;
       }
