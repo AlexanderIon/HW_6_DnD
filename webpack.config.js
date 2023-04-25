@@ -20,7 +20,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               namme: '[name].[ext]',
-              outputPath: '.logs',
+              outputPath: 'logs',
               userRelativePath: true,
             }
           }
